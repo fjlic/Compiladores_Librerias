@@ -10,6 +10,6 @@
 
    3)Para ejecutar el programa introducir el siguiente comando: python Prueba_precompilador.py class2.c (ejecutarlo y pasar por parametro el archivo class2.c que contiene un codigo basico en lenguaje C)
    
- Nota: los resultados del programa se muestran en la imagen con nombre resultados.JPEG
+ Nota: los resultados del programa se muestran en la imagen con nombre resultados.jpeg
 
   
