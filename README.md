@@ -1,5 +1,5 @@
 # Compiladores_Librerias
-Instrucciones para descargar, compilar y correr:
+Instrucciones para descargar, compilar y correr en Fortran:
 
 1) Descargar el programa y el archivo de texto con los parámetros en la misma ruta
 
