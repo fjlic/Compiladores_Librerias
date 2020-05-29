@@ -29,7 +29,9 @@ el código y el archivo de texto)
 
 3) Para ejecutar el programa introducir el siguiente comando: python Mult_matrices_python.py test.txt (ejecutarlo y pasar por parametro el archivo test.txt que contiene la matriz de 3x3)
 
-Nota: los resultados se pueden consultar dentro de las tres imagenes para (Dfortran, C, Python)
-      1) resultados_Gfortran.jpeg
-      2) resultados_C.jpeg
-      3) resultados_Python.jpeg
+# Nota: 
+  los resultados se pueden consultar dentro de las tres imagenes para (Dfortran, C, Python)
+  
+   1) resultados_Gfortran.jpeg
+   2) resultados_C.jpeg
+   3) resultados_Python.jpeg
