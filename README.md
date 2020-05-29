@@ -1,6 +1,6 @@
 # Compiladores_Librerias
 
-# Este preprocesador cumple con la siguientes directivas del uso de (include, define, undef, if, else, endif)
+   Este preprocesador cumple con la siguientes directivas del uso de (include, define, undef, if, else, endif)
 
 # Instrucciones para descargar, compilar y correr el Preprocesador:
    
