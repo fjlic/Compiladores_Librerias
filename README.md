@@ -12,6 +12,6 @@
    
 # Nota: 
    
-   los resultados del programa se muestran en la imagen con nombre resultados.jpeg
+   Los resultados del programa se muestran en la imagen con nombre resultados.jpeg
 
   
