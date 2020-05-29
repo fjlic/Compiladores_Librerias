@@ -1,0 +1,38 @@
+#include <example.h>
+#include "example.h"
+#include "folder/preprocessor.h"
+// Literally does_not_exists.h does not exists
+// What will the preprocessor does in this case?
+#include "does_not_exists.h" 
+
+
+#define PI 3.1416
+#define Ohhh "iii"
+
+int main(){
+	
+#if True
+#if PI==3.1416
+    printf("This is the value of PI %f", PI );
+#else
+
+printf("Hello World!" , Ohhh );
+
+#endif
+	return 0
+#else
+	printf("Hello Worldx2!");
+
+#endif
+
+}
+
+#undef PI
+int not_main(){
+    printf("This is the value of PI %f", PI);
+
+}
+
+// This is a syntax error, how the preprocessor will handle this scenario?
+#include "error.h"
+
