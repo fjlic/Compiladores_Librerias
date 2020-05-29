@@ -2,7 +2,7 @@
 
    Este preprocesador cumple con la siguientes directivas del uso de (include, define, undef, if, else, endif)
 
-# Instrucciones para descargar, compilar y correr el Preprocesador:
+# Instrucciones para descargar y ejecutar el preprocesador:
    
    1)Descargar el programa Prueba_precompilador.py y el archivo de class2.c con el codigo que contiene en extencion.c
 
