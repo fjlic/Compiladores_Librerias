@@ -19,4 +19,12 @@ el código y el archivo de texto)
 
 3) Una vez dentro del directorio, correr el siguiente comando para compilar y crear el ejecutable seria de esta forma: gcc Matriz_File.c -o Matriz_File
 
-5) Para ejecutar el programa introducir el siguiente comando: ./Matriz_File test.txt (ejecutarlo y pasar por parametro el archivo test.txt que contiene la matriz de 3x3)
+4) Para ejecutar el programa introducir el siguiente comando: ./Matriz_File test.txt (ejecutarlo y pasar por parametro el archivo test.txt que contiene la matriz de 3x3)
+
+# Instrucciones para descargar, compilar y correr en Python:
+
+1) Descargar el programa Mult_matrices_python.py y el archivo de test.txt con los parámetros que estan dentro del archivo .txt
+
+2) En la consola de comandos de Linux, dirigirse al directorio donde están guardados el programa Mult_matrices_python.py
+
+3) Para ejecutar el programa introducir el siguiente comando: python Mult_matrices_python.py test.txt (ejecutarlo y pasar por parametro el archivo test.txt que contiene la matriz de 3x3)
