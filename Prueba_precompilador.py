@@ -9,10 +9,10 @@ import os.path as path
 
 
 def libreria_valida(cadena):
+ if cadena in lib_estandar:	
+  return True  
  arreglo=str(cadena.replace('"', ''))
  if arreglo!="null":
-#  print ("intento de lleer una libreria")
-#  print(arreglo)
   if path.exists(arreglo):
 #   print ("existe libreria")
    d=open(arreglo,'r+')
@@ -25,32 +25,27 @@ def libreria_valida(cadena):
   return False
   
 def remplaza(linea,cons,valor,linea_termino):
-
-# print("matriz linea")
-# print(matriz_linea)
-# print("linea")
-# print(linea)
+#linea= liinea a partir  de donde se va remplazar la constante
+#cons= constante que se va a remplazar
+#valor= valor de la constante
+#linea de termino= linea hasta la cual se realizara el remplazo (si se encuentra)
  inicio=linea
  cons=str(cons)
-# print("constante")
-# print(cons)
-# valor=str(valor)
-# print("valor")
-# print(valor)
-
+#define si tiene  limite  de linea de remplazo
  if linea_termino!=-1:
+  # si tiene se asigna
   termino=linea_undef[linea_termino]
  else:
+ # si no  hasta la ultima linea del codigo
   termino=len(matriz_linea)
- #print("linea termino")
- #print(termino)
+
+# se recorre el codigo desde la linea de inicio hasta la de termino
  for i in range(inicio,termino):
   comillas=0 
   numelementos=len(matriz_linea[i])
   for j in range(numelementos):
    string5=matriz_linea[i][j]
-#   print("termino a evaluar")
-#   print(string5)
+  # se buscan comillas para saber si la connstante esta dentro de string
    if '"' in string5:  # si la constante esta dentro de comillas se ignora
     if comillas==1:
      comillas=0
@@ -58,10 +53,7 @@ def remplaza(linea,cons,valor,linea_termino):
      comillas=1
     if string5.count('"')==2:
      comillas=0
-#   print(" entre comillas")
-#   print(comillas)
-#   print("se busca  la (constante) termino a evaluar")
-#   print(cons)
+
    if cons in string5 and comillas==0:
 #    print("se encontro  la constante termino a evaluar")
 #    print(cons)
@@ -162,14 +154,14 @@ def evalua_if(linea_1):
  return False
 
 
-# ArgumentParser con una descripción de la aplicación
+# ArgumentParser con una descripciÃ³n de la aplicaciÃ³n
 parser = ArgumentParser(description='%(prog)s is an ArgumentParser demo')
 
 
-# Argumento posicional con descripción
+# Argumento posicional con descripciÃ³n
 parser.add_argument('fichero', help='ayuda del fichero')
 
-# Por último parsear los argumentos
+# Por Ãºltimo parsear los argumentos
 args = parser.parse_args()
 
 d=open(args.fichero,'r+')
@@ -191,6 +183,7 @@ linea_comentario=[] # almacena  las lineas que son comentario
 encontar_main=[]
 palabras_reservadas=["int","float", "main","print","scan",","]
 forma_de_main=["main(){","main(){","main ( )","main()","main(){", "main(void){","main(void){"]
+lib_estandar=["<stdio.h>","<stdlib.h>","<string.h>","<time.h>","<float.h>", "<assert.h>","<errno.h>"]
 matriz_datos_libreria=[] #guarda la cadena que
 numlineas=len(datos)
 matriz_datos_libreria=[]
@@ -209,22 +202,21 @@ if numlineas!=0:
  for i in range(numlineas):
   if "\n" in datos[i]:
    datos[i]=datos[i].replace("\n","")
+  if "\t" in datos[i]:
+   datos[i]=datos[i].replace("\t"," ")
+  # posibles lineas con una sola cadena 
   a=datos[i].count(" ")
   b=datos[i].count("else")
   c=datos[i].count("endif")
   d=datos[i].count("}")
-#  print (datos[i])
+  print (datos[i])
+  #  si es una  llinea valida  empezara a hacer separaciones
   if a!=0 or b!=0 or c!=0 or d!=0:
    matriz_linea.append([0]*(a+1))
    num_lineas_validas=num_lineas_validas+1
-#   print (a)
-   list=[]
    if a!=0:
     matriz_linea[linea_valida]=datos[i].split(" ")
     list=datos[i].split(" ")
-    if "\t" in datos[i]:
-     string1=" ".join(list)
-     matriz_linea[linea_valida]=string1.split("\t")
    else:
     matriz_linea[linea_valida]=datos[i].split("\t")
    while '' in matriz_linea[linea_valida]:
@@ -251,12 +243,6 @@ if numlineas!=0:
 # casos que se necesitan mas de dos palabras   
    if tamlinea>1:
     string3=matriz_linea[linea_valida][1] # ver si es main	o define o undef
-#    print(string3)	
-    #elimina la /n
-    if '\n' in string2:
-     string4=string2.split("\n")
-#     print(string4[0])
-     matriz_linea[linea_valida][tamlinea-1]=string4[0]
  
     # revisa si es una direcciva del preprocesador
     if string1=="#include":
@@ -272,9 +258,9 @@ if numlineas!=0:
      directivas_define.append(string3) # agrega el define
      if tamlinea>2:
       directivas_define_valor.append(matriz_linea[linea_valida][2]) # agrega el define
-      
      else:
       directivas_define_valor.append("null")
+      lineas_errores.append(num_lineas_validas)
 	
     if str(string3) in forma_de_main:	
      encontar_main.append(num_lineas_validas)  
@@ -284,13 +270,7 @@ if numlineas!=0:
      directivas_undefine.append(string3)
     if string1=="#if":
      linea_if.append(num_lineas_validas)	
-#linea_if_evaluado.append(evaluar_if)
-
-
-
-    
-   
-   
+  
    linea_valida=linea_valida+1
     
   
@@ -302,23 +282,13 @@ j=0
 
 # remplazo de las variables
 while j!=num:
- 
- 
-# print("directivas_undefine")
-# print(directivas_undefine)
-# print("directivas_define[j]")
-# print(directivas_define[j])
  if directivas_define[j] in directivas_undefine:
-#  print("se encontro")
   linea_termino=directivas_undefine.index(directivas_define[j])
-#  print(linea_termino)
  else:  
   linea_termino=-1
  remplaza(linea_define[j],directivas_define[j],directivas_define_valor[j],linea_termino)
  linea_termino=0
  j=j+1
-
-
 
 
 # evalua los if 
@@ -328,8 +298,48 @@ num=len(linea_if)
 while i<num:
   string1=evalua_if(matriz_linea[linea_if[i]])
   linea_if_evaluado.append(string1)
- 
   i=i+1
+
+
+#------------- imprimir  datos obtenidos--------
+
+print ("--------------------------")
+print ("\nArchivo Leido:")
+print (datos)
+print ("\nCadena limpia:")
+print (matriz_linea)
+print ("\n-----procesamiento de lineas------")
+print ("\nSe encontro #define en las lineas:")
+print (linea_define)
+print ("Las constantes son:")
+print (directivas_define)
+print ("Su respectivo valor es:")
+print (directivas_define_valor)
+print ("\nSe encontro #include en las lineas:")
+print (linea_include)
+print ("Se evaluo la libreria como:")
+print (linea_libreria_valida)
+print ("\nSe encontro comentarios en las lineas:")
+print (linea_comentario)
+print ("\nSe encontro if en las lineas:")
+print (linea_if)
+print ("Se evaluo cada if como:")
+print (linea_if_evaluado)
+print ("\nSe encontro  #if , #else en las lineas:")
+print (linea_else)
+print ("\nSe encontro  #if , #endif en las lineas:")
+print (linea_endif)
+print ("\nSe encontro #undef en las lineas:")
+print (linea_undef)
+
+print ("\nSe encontro main en la linea:")
+print (encontar_main)
+
+print ("---se adjunto la libreria----")
+print ("datos libreria")
+print (matriz_datos_libreria)
+
+#------------- se  revisa que lineas se agrgaran al archivo de salida--------
 
 # inicializa las lineas que llevara el codigo
 num=len(matriz_linea)
@@ -341,18 +351,18 @@ for i in range(num):
 for i in range(len(linea_include)):
  lineas_imprimir.remove(linea_include[i])
  
-# elimina las lineas con #d
+# elimina las lineas con #define
 for i in range(len(linea_define)):
  lineas_imprimir.remove(linea_define[i])
  
-
+# elimina las lineas con comentarios
 for i in range(len( linea_comentario)):
  lineas_imprimir.remove( linea_comentario[i])
 
+# elimina las lineas con #undef
 for i in range(len( linea_undef)):
  lineas_imprimir.remove( linea_undef[i]) 
- 
- 
+  
 # elimina las lineas con #if
 for j in range(len( linea_if)):
  if linea_if[j] in lineas_imprimir:
@@ -390,14 +400,7 @@ else:
   for j in range(len(linea_if)):
    if linea_if[j]==inicio_if:
     valor_if=linea_if_evaluado[j]	
-#  print("inicio if")
-#  print(inicio_if)
-#  print("inicio else")
-#  print(inicio_else)
-#  print("fin if")
-#  print(fin_if)
-#  print("valor if")
-#  print(valor_if)
+
   if valor_if==True:
    for j in range(inicio_else,fin_if):
     if j in lineas_imprimir:
@@ -419,12 +422,6 @@ else:
    for j in range(len(linea_if)):
     if linea_if[j]==inicio_if:
      valor_if=linea_if_evaluado[j]	
-#   print("inicio if")
-#   print(inicio_if)
-#   print("fin if")
-#   print(fin_if)
-#   print("valor if")
-#   print(valor_if)
    if valor_if==False:
     for j in range(inicio_if,fin_if):
      if j in lineas_imprimir:
@@ -432,50 +429,6 @@ else:
   i=i+1
 
  
-
-#print ("Matriz Original:")
-i=0
-num=len(matriz_linea)
-while i<num:
-# print ("num/ linea")
-# print (i)
-# print (matriz_linea[i])
- i=i+1
-print ("--------------------------")
-print ("archivo Leido")
-print (datos)
-print ("cadena limpia")
-print (matriz_linea)
-print ("-----procesamiento de lines------")
-print (" se encontro define en las lineas:")
-print (linea_define)
-print ("include")
-print (linea_include)
-print ("libreria valida")
-print (linea_libreria_valida)
-print ("comentario")
-print (linea_comentario)
-print ("#if")
-print (linea_if)
-print ("evaluacion de if")
-print (linea_if_evaluado)
-print ("else")
-print (linea_else)
-print ("undef")
-print (linea_undef)
-print ("endif")
-print (linea_endif)
-print ("main en")
-print (encontar_main)
-print ("define_valor")
-print (directivas_define)
-print ("define_valor")
-print (directivas_define_valor)
-print ("---se adjunto la libreria----")
-print ("datos libreria")
-print (matriz_datos_libreria)
-
-
 
 #crea archivo de salida
 file = open("salida.c", "w")
@@ -490,28 +443,13 @@ while i<num:
   j=j+1
  i=i+1
 
-
-
-
-
- 
- 
-
-
+print("num de lineas validas a imprimir")
 print(lineas_imprimir)
 num=len(lineas_imprimir)
 i=0
-
-
-
 while i<num:
-# print ("num/ linea")
-# print (i)
-# print (matriz_linea[i])
  num_1=lineas_imprimir[i]
-# print(num_1)
  string1=" ".join(matriz_linea[num_1])
-# print(string1)
  file.write(string1+ os.linesep)
  i=i+1
 file.close()
