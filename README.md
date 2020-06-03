@@ -12,6 +12,6 @@
    
 # Nota: 
    
-   Los resultados del programa se muestran en la imagen con nombre resultados.jpeg
+   Los resultados del programa se muestran en las imagenes con nombre resultados_1.jpeg, resultados_2.jpeg y el archivo de salida  se muestra en resultados_3.jpeg 
 
   
