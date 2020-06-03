@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include <example.h>
 #include "example.h"
 #include "folder/preprocessor.h"
@@ -13,7 +14,7 @@ int main(){
 	
 #if True
 #if PI==3.1416
-    printf("This is the value of PI %f", PI );
+      printf("This is the value of PI %f", PI );
 #else
 
 printf("Hello World!" , Ohhh );
@@ -24,7 +25,7 @@ printf("Hello World!" , Ohhh );
 	printf("Hello Worldx2!");
 
 #endif
-
+// What will the preprocessor does in this case? PI
 }
 
 #undef PI
@@ -35,4 +36,3 @@ int not_main(){
 
 // This is a syntax error, how the preprocessor will handle this scenario?
 #include "error.h"
-
