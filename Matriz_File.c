@@ -18,8 +18,12 @@ int main(int argc, char **argv) {
     float matrizB[COLUMNAS_MATRIZ_B][COLUMNAS_MATRIZ_B];
     float matrizC[COLUMNAS_MATRIZ_C][COLUMNAS_MATRIZ_C];
     /*Seccion para leer el archivo y pasar los datos a un matriz de 3x3*/
-    fich = fopen(argv[1], "r");
-    //fich = fopen("test.txt", "r");
+    //fich = fopen(argv[1], "r");
+    fich = fopen("test.txt", "r");
+    //fich = fopen("test_pos.txt", "r");
+    //fich = fopen("test_neg.txt", "r");
+    //fich = fopen("test_float.txt", "r");
+    //fich = fopen("test_char.txt", "r");
     int f = 0;
     int c = 0;
     while(fgets(linea, 1024, (FILE*) fich)) {
@@ -43,7 +47,7 @@ int main(int argc, char **argv) {
     }
     f=0;
     fclose(fich);
-    /*Fin de lectura del archivo*/
+    /*Fin de lectira del archivo*/
 
     /*Multiplicacion de la matriz por si misma  matrizA * matrizB*/
     for (int a = 0; a < COLUMNAS_MATRIZ_B; a++) {
@@ -75,7 +79,7 @@ int main(int argc, char **argv) {
         }
         printf("\n");
     }
-    printf("\n********Matriz 3x3 Fin********* \n");
+    printf("\n********Matriz 3x3 Num_Positivo********* \n");
 
 
 return 0;
