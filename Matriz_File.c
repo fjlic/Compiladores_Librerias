@@ -18,8 +18,8 @@ int main(int argc, char **argv) {
     float matrizB[COLUMNAS_MATRIZ_B][COLUMNAS_MATRIZ_B];
     float matrizC[COLUMNAS_MATRIZ_C][COLUMNAS_MATRIZ_C];
     /*Seccion para leer el archivo y pasar los datos a un matriz de 3x3*/
-    //fich = fopen(argv[1], "r");
-    fich = fopen("test.txt", "r");
+    fich = fopen(argv[1], "r");
+    //fich = fopen("test.txt", "r");
     //fich = fopen("test_pos.txt", "r");
     //fich = fopen("test_neg.txt", "r");
     //fich = fopen("test_float.txt", "r");
