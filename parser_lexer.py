@@ -58,23 +58,6 @@ tokens = (
 	'WHITESPACE',
 	'WHITESPACE_T',
 	'WHITESPACE_N',
-
-	# Regular expressions
-	'PLUS',
-	'MINUS',
-	'TIMES',
-	'DIVIDE',
-	'IGUAL',
-	'MENOR_QUE',
-	'MAYOR_QUE',
-	'PUNTOCOMA',
-	'COMMA',
-	'LPAREN',
-	'RPAREN',
-	'LBRACKET',
-	'RBRACKET',
-	'LBLOCK',
-	'RBLOCK',
 	
 )
 
@@ -168,22 +151,6 @@ def t_RBLOCK(t):
 	global columna
 	columna += 1
 	return t
-
-#t_PLUS 	 = r'\+'
-#t_MINUS	 = r'-'
-#t_TIMES  = r'\*'
-#t_DIVIDE = r'/'
-#t_IGUAL  = r'='
-#t_MENOR_QUE = r'<'
-#t_MAYOR_QUE = r'>'
-#t_SEMICOLON = ';'
-#t_COMMA	= r','
-#t_LPAREN = r'\('
-#t_RPAREN  = r'\)'
-#t_LBRACKET = r'\['
-#t_RBRACKET = r'\]'
-#t_LBLOCK   = r'{'
-#t_RBLOCK   = r'}'
 
 def t_LIB(t):
 	r'\#include'
@@ -346,7 +313,7 @@ def t_comments_C99(t):
 	t.lexer.lineno += 1
 
 def t_error(t):
-	print "Lexical error: " + str(t.value[0])
+	print "Lex UNKNOWN: " + str(t.value[0])
 	t.lexer.skip(1)
 
 def test(data, lexer):
@@ -388,9 +355,12 @@ if __name__ == '__main__':
 		fin = 'Matriz_File.c'
     
 	print "Nombre del Archivo: " + fin + "\n"
+	print "Contenido del archivo: "
 	f = open(fin, 'r')
 	lineas = f.readlines()
+	print lineas
 	for linea in lineas:
+		print linea
 		lexer.input(linea)
 		test(linea, lexer)
 		columna=0
