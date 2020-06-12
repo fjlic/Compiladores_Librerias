@@ -14,8 +14,8 @@ Recursos instalar la libreria de Ply de python:
 # Nota: 
   los resultados se pueden consultar en: res_1,2,3,4,5.jpeg, pero si quiere ver el resultado completo esta en resultados.rar
   
-   1) res_1.jpeg
-   2) res_2.jpeg
-   3) res_3.jpeg
-   3) res_4.jpeg
-   3) res_5.jpeg
+   1) res_1.JPG
+   2) res_2.JPG
+   3) res_3.JPG
+   3) res_4.JPG
+   3) res_5.JPG
