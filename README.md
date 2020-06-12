@@ -1,5 +1,6 @@
 # Compiladores_Librerias
-# Es necesario instalar la libreria de Ply de python:
+
+# Recursos instalar la libreria de Ply de python:
 
 
 # Instrucciones para descargar y ejecutar el analizador lexico en Python:
