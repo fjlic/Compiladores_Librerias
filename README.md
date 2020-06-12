@@ -5,7 +5,7 @@ Recursos instalar la libreria de Ply de python:
 
 # Instrucciones para descargar y ejecutar el analizador lexico en Python:
 
-1) Descargar el programa Mult_matrices_python.py y el archivo de test.txt con los parámetros que estan dentro del archivo .txt
+1) Descargar el programa parser_lexer.py y el archivo de Matriz_File.c
 
 2) En la consola de comandos de Linux, dirigirse al directorio donde están guardados el programa Mult_matrices_python.py
 
