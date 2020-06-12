@@ -1,7 +1,7 @@
 # Compiladores_Librerias
 
 Recursos instalar la libreria de Ply de python:
-1) Ejecutar en terminal:  pip install ply
+1) Ejecutar en terminal: sudo apt-get install python-pip  seguido de:  pip install ply
 
 # Instrucciones para descargar y ejecutar el analizador lexico en Python:
 
