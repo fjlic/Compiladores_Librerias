@@ -1,3 +1,0 @@
-Para ejecutar el script de python con el código fuente en C como argumento, correr el siguiente comando en consola:
-
-python parser_lexer.py Matriz_File.c
