@@ -12,7 +12,7 @@ Recursos instalar la libreria de Ply de python:
 3) Para ejecutar el programa introducir el siguiente comando: python parser_lexer.py (ejecutarlo y pasar por parametro el archivo Matriz_File.c que contiene el archivo fuente en lenguaje c), seria algo asi: python parser_lexer.py Matriz_File.c 
 
 # Nota: 
-  los resultados se pueden consultar en: res_1,2,3,4,5.jpeg, pero si quiere ver el resultado completo existe el resultados.rar
+  los resultados se pueden consultar en: res_1,2,3,4,5.jpeg, pero si quiere ver el resultado completo esta en resultados.rar
   
    1) res_1.jpeg
    2) res_2.jpeg
