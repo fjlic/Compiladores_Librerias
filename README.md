@@ -3,7 +3,7 @@ Recursos instalar la libreria de Pythonds de python:
 
 1) Ejecutar en terminal: sudo apt-get install python-pip  seguido de:  pip install pythonds
 
-# Instrucciones para descargar y ejecutar Sufijo y Prefijo en Python:
+# Instrucciones para descargar y ejecutar Notación Infija/Postfija/Prefija en Python:
 
 1) Descargar el programa Sixfix.py
 
