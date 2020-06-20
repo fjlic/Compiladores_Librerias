@@ -13,6 +13,7 @@ Recursos instalar la libreria de Pythonds de python:
 
 # Nota: 
   los resultados se pueden consultar en: 
+  
   1)resulstados.JPG
      
   2)resulstados_2.JPG
